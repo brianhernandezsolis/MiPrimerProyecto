@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content%}
+    <h1>Detalle del Municipio</h1>
+    <p><strong>Nombre:</strong> {{ municipio.nombre }}</p>
+    <p><strong>Departamento:</strong> {{ municipio.departamento }}</p>
+    {% if perms.catalogo.change_municipio%}
+    <a href="{% url 'municipioupdate' municipio.pk %}">Editar Municipio</a>
+   {%endif%}
+    {% if perms.catalogo.delete_municipio%}
+    <a href="{% url 'municipiodelete' municipio.pk %}">Eliminar Municipio</a>
+  {%endif%}
+{% endblock %}

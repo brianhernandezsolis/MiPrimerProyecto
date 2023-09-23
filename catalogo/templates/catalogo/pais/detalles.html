@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content%}
+    <h1>Detalle del Pais</h1>
+    <p><strong>Nombre:</strong> {{ pais.nombre }}</p>
+    {% if perms.catalogo.change_pais%}
+    <a href="{% url 'paisupdate' pais.pk %}">Editar Pais</a>
+   {%endif%}
+    {% if perms.catalogo.delete_pais%}
+    <a href="{% url 'paisdelete' pais.pk %}">Eliminar Pais</a>
+  {%endif%}
+{% endblock %}

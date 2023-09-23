@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content%}
+    <h1>¿Estás seguro de que deseas eliminar este departamento?</h1>
+    <p><strong>Nombre:</strong> {{ departamento.nombre }}</p>
+    <p><strong>País:</strong> {{ departamento.pais }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, Eliminar</button>
+    </form>
+    <a href="{% url 'departamentodetail' departamento.pk %}">Cancelar</a>
+{% endblock %}
